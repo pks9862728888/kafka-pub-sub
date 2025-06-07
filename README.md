@@ -10,3 +10,6 @@ cd C:\dev\kafka_2.13-3.8.0\bin\windows
 zookeeper-server-start.bat ..\..\config\zookeeper.properties
 kafka-server-start.bat ..\..\config\server.properties
 ```
+
+## Architecture diagram
+![img.png](architecture-diagram.png)
