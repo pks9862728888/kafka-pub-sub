@@ -12,11 +12,11 @@ import java.util.concurrent.CompletableFuture;
 @Service
 @RequiredArgsConstructor
 public class KafkaMessageSender {
-  private final KafkaTemplate<String, String> kafkaTemplate;
+  private final KafkaTemplate<String, byte[]> kafkaTemplate;
 
-  public void sendMessage(String message, String key, String topic) {
+  public void sendMessage(byte[] message, String key, String topic) {
     log.info("Sending message to topic: {}, key: {}", topic, key);
-    CompletableFuture<SendResult<String, String>> sendResult = kafkaTemplate.send(topic, key, message);
+    CompletableFuture<SendResult<String, byte[]>> sendResult = kafkaTemplate.send(topic, key, message);
     sendResult.thenRun(() -> log.info("Sent message to topic: {}, key: {}", topic, key));
   }
 }

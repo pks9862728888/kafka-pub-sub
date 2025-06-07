@@ -6,11 +6,7 @@ spring:
     bootstrap-servers: localhost:9092
     consumer:
       group-id: ${topicPrefix}${spring.application.name}
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 
 topicPrefix: 'd.'
 topic:
   test.topic: ${topicPrefix}test.topic
-
-

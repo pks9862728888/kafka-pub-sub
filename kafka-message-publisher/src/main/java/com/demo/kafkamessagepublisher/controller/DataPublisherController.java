@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
+
 @RestController
 @RequestMapping("/publish")
 @RequiredArgsConstructor
@@ -16,7 +18,7 @@ public class DataPublisherController {
   private final KafkaMessagePublisherService kafkaMessagePublisherService;
 
   @PostMapping("/test-message")
-  public ResponseEntity<Boolean> publishMessage(@RequestParam("message") String message) {
+  public ResponseEntity<Boolean> publishMessage(@RequestParam("message") String message) throws IOException {
     kafkaMessagePublisherService.sendMessage(message);
     return new ResponseEntity<>(true, HttpStatus.OK);
   }

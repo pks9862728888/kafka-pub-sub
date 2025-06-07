@@ -1,3 +1,7 @@
 spring:
   application:
     name: kafka-message-publisher
+  kafka:
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
