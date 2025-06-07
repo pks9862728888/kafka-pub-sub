@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.demo</groupId>
 	<artifactId>kafka-message-subscriber</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>kafka-message-subscriber</name>
 	<description>Demo project for Spring Boot (kafka consumer)</description>
 	<url/>
