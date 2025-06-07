@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: kafka-message-publisher
+  kafka:
+    bootstrap-servers: localhost:9092
+
+topicPrefix: 'd.'
+topic:
+  test.topic: ${topicPrefix}test.topic
