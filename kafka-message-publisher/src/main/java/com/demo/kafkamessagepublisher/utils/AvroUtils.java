@@ -7,8 +7,9 @@ import org.apache.avro.specific.SpecificRecord;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.zip.GZIPOutputStream;
 
-public class AvroUtils {
+public abstract class AvroUtils {
 
   public static byte[] getBytes(SpecificRecord message) throws IOException {
     ByteArrayOutputStream bos = new ByteArrayOutputStream();
@@ -17,6 +18,14 @@ public class AvroUtils {
     writer.write(message, encoder);
     encoder.flush();
     bos.close();
+    return compress(bos.toByteArray());
+  }
+
+  public static byte[] compress(byte[] bytes) throws IOException {
+    ByteArrayOutputStream bos = new ByteArrayOutputStream();
+    GZIPOutputStream gzip = new GZIPOutputStream(bos);
+    gzip.write(bytes);
+    gzip.close();
     return bos.toByteArray();
   }
 }
